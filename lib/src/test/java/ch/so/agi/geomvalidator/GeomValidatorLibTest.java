@@ -9,7 +9,10 @@ public class GeomValidatorLibTest {
     
     @Test
     public void validate_Ok() {
-        int result = GeomValidatorLib.validate();
+        //String wktGeom = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))";
+        //String wktGeom = "MultiPolygon (((2609000 1236700, 2609200 1236700, 2609200 1236600, 2609000 1236600, 2609000 1236700)))";
+        String wktGeom = "POLYGON ((2609000 1236700, 2609200 1236700, 2609200 1236600, 2609000 1236600, 2609000 1236700))";
+        int result = GeomValidatorLib.validate(wktGeom);
         
         
         logger.info("result: " + String.valueOf(result));
