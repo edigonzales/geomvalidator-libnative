@@ -12,7 +12,7 @@ public class GeomValidatorLibTest {
         //String wktGeom = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))";
         //String wktGeom = "MultiPolygon (((2609000 1236700, 2609200 1236700, 2609200 1236600, 2609000 1236600, 2609000 1236700)))";
         String wktGeom = "POLYGON ((2609000 1236700, 2609200 1236700, 2609200 1236600, 2609000 1236600, 2609000 1236700))";
-        int result = GeomValidatorLib.validate(wktGeom);
+        int result = GeomValidatorLib.validate("alayer", "f1", wktGeom);
         
         
         logger.info("result: " + String.valueOf(result));
