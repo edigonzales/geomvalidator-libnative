@@ -2,7 +2,6 @@ package ch.so.agi.geomvalidator;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
@@ -18,9 +17,6 @@ import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 
 import ch.ehi.basics.types.OutParam;
-import ch.interlis.ili2c.metamodel.LineForm;
-import ch.interlis.ili2c.metamodel.SurfaceType;
-import ch.interlis.iom.IomConstants;
 import ch.interlis.iom.IomObject;
 import ch.interlis.iom_j.itf.impl.jtsext.algorithm.CurveSegmentIntersector;
 import ch.interlis.iom_j.itf.impl.jtsext.geom.ArcSegment;
@@ -38,6 +34,7 @@ import ch.interlis.iox_j.jts.Iox2jtsException;
 import ch.interlis.iox_j.jts.Iox2jtsext;
 import ch.interlis.iox_j.jts.Jts2iox;
 import ch.interlis.iox_j.jts.Jtsext2iox;
+import ch.interlis.iox_j.logging.Log2EhiLogger;
 import ch.interlis.iox_j.logging.LogEventFactory;
 import ch.interlis.iox_j.validator.ValidationConfig;
 
@@ -46,6 +43,9 @@ public class GeomValidatorLib {
     
     public static int validate(String layername, String fid, String wktGeom) {    
         LogEventFactory errFact = new LogEventFactory();
+        errFact.setLogger(new Log2EhiLogger());
+        
+        boolean valid = true;
         try {
             WKTReader wktReader = new WKTReader();
             Geometry jtsGeom = wktReader.read(wktGeom);
@@ -62,23 +62,21 @@ public class GeomValidatorLib {
                 return 0;   
             } else if (jtsGeom instanceof Polygon) {
                 geom = Jts2iox.JTS2surface((Polygon)jtsGeom);
-                validateSurfaceTopology(layername, fid, geom, errFact);
+                valid = validateSurfaceTopology(layername, fid, geom, errFact);
 
             } else if (jtsGeom instanceof MultiPolygon) {
                 geom = Jts2iox.JTS2multisurface((MultiPolygon)jtsGeom);
-                validateSurfaceTopology(layername, fid, geom, errFact);
+                valid = validateSurfaceTopology(layername, fid, geom, errFact);
             }
-            
-            
-            
             
             System.out.println(geom);
             
-            
         } catch (ParseException e) {
             e.printStackTrace();
-            return 1;
+            return 2;
         }
+        
+        if (!valid) return 1;  
         
         return 0;
     }
@@ -86,26 +84,21 @@ public class GeomValidatorLib {
     private static boolean validateSurfaceTopology(String layername, String mainObjTid, IomObject iomValue, LogEventFactory errFact) {
         boolean surfaceTopologyValid=true;
         try {
-            System.out.println("validateSurfaceTopology");
             surfaceTopologyValid = validatePolygon(layername, mainObjTid, iomValue, errFact);
         } catch (IoxException e) {
             surfaceTopologyValid=false;
-            System.err.println(e.getMessage());
-            System.err.println(rsrc.getString("validateSurfaceTopology.failedToValidatePolygon"));
+            errFact.addEvent(errFact.logErrorMsg(e, rsrc.getString("validateSurfaceTopology.failedToValidatePolygon")));
         }
         return surfaceTopologyValid;
-
     }
     
     public static boolean validatePolygon(String layername, String mainTid,IomObject polygon,LogEventFactory errFact) 
             throws IoxException
     {
-        System.out.println("validatePolygon");
-
         String linetableIliqname = layername;
         boolean polygonValid = true;
         double maxOverlaps = 0.001; // hardcodiert
-        double size = 3.0; 
+        double size = 3.0; // Siehe Code iox-ili. Wert mit einem Beispiel-XTF debugged.
         double newVertexOffset = 0.002; // 2*Math.pow(10, -size)
         
         JtsextGeometryFactory jtsFact=new JtsextGeometryFactory();
@@ -120,16 +113,15 @@ public class GeomValidatorLib {
         OutParam<Polygon> poly=new OutParam<Polygon>();
         ArrayList<IoxInvalidDataException> dataerrs=new ArrayList<IoxInvalidDataException>();
         try {
-            System.out.println("validatePolygon2");
-
             createPolygon(mainTid, segv, maxOverlaps, newVertexOffset, dataerrs, linetableIliqname, null, poly);
         } finally {
             if (dataerrs.size() > 0) {
                 polygonValid=false;
             }
             for (IoxInvalidDataException err : dataerrs){
-                //errFact.addEvent(errFact.logError(err));
-                System.err.println(err.getMessage());
+                errFact.addEvent(errFact.logError(err));
+                System.err.println("****FUBAR");
+                //System.err.println(err.getMessage());
             }
         }
         return polygonValid;
@@ -144,13 +136,10 @@ public class GeomValidatorLib {
             String linetableIliqname,String geomattrIliqname,OutParam<Polygon> returnPolygon) 
                     throws IoxInvalidDataException 
     {
-        System.out.println("createPolygon");
-
         boolean hasIntersections=false;
         boolean isDisconnected=false;
         
-        // TODO: Die möchte man wohl nicht entfernt haben. Man prüft Simple Feature Geometrien und
-        // keine INTERLIS-Geometrien.
+        // TODO: Will man INTERLIS-valide Selfintersections entfernen?
         for(CompoundCurve seg : segv){
             removeValidSelfIntersections(seg,maxOverlaps,newVertexOffset);
         }
@@ -342,115 +331,4 @@ public class GeomValidatorLib {
         }
         
     }
-    
-    // Das ist weniger interessant. Was wir wollen steckt in validatePolylineTopology und validateSurfaceTopology
-    /*
-    private static boolean validatePolygon(SurfaceType surfaceType, IomObject surfaceValue) {
-        if (surfaceValue.getobjecttag().equals("MULTISURFACE")){
-            boolean clipped = surfaceValue.getobjectconsistency()==IomConstants.IOM_INCOMPLETE;
-            for(int surfacei=0;surfacei< surfaceValue.getattrvaluecount("surface");surfacei++){
-                if(!clipped && surfacei>0){
-                    // unclipped surface with multi 'surface' elements
-                    //logMsg(validateType, rsrc.getString("validatePolygon.invalidNumberOfSurfaceInCompleteBasket"));
-                    System.err.println("****Fehler....");
-                    return false;
-                }
-                IomObject surface= surfaceValue.getattrobj("surface",surfacei);
-                int boundaryc=surface.getattrvaluecount("boundary");
-                // a multisurface consists of at least one boundary.
-                if(boundaryc==0){
-//                    String objectIdentification = currentIomObj.getobjectoid();
-//                    if(objectIdentification==null){
-//                        objectIdentification = currentIomObj.getobjecttag();
-//                    }
-                    //logMsg(validateType, rsrc.getString("validatePolygon.missingOuterboundaryInXOfObjectY"), attrName, objectIdentification);
-                    System.err.println("boundaryc==0");
-                    return false;
-                } else {
-                    for(int boundaryi=0;boundaryi<boundaryc;boundaryi++){
-                        IomObject boundary=surface.getattrobj("boundary",boundaryi);
-                        if(boundaryi==0){
-                            // shell
-                        }else{
-                            // hole
-                        }    
-                        for(int polylinei=0;polylinei<boundary.getattrvaluecount("polyline");polylinei++){
-                            IomObject polyline=boundary.getattrobj("polyline",polylinei);
-                            validatePolyline(surfaceType, polyline);
-                            // add line to shell or hole
-                        }
-                        // add shell or hole to surface
-                    }
-                }
-            }
-        } else {
-            //logMsg(validateType, "unexpected Type "+surfaceValue.getobjecttag()+"; MULTISURFACE expected");
-            System.err.println("MULTISURFACE expected");
-            return false;
-        }
-        return true;
-    }
-    
-    private static boolean validatePolyline(SurfaceType polylineType, IomObject polylineValue) {
-        boolean foundErrs=false;
-        if (polylineValue.getobjecttag().equals("POLYLINE")){
-            boolean clipped = polylineValue.getobjectconsistency()==IomConstants.IOM_INCOMPLETE;
-            if(!clipped && polylineValue.getattrvaluecount("sequence")>1){
-                // an unclipped polyline should have only one sequence element
-                //logMsg(validateType, rsrc.getString("validatePolyline.invalidNumberOfSequenceInCompleteBasket"));
-                System.err.println("validatePolyline.invalidNumberOfSequenceInCompleteBasket");
-                foundErrs = foundErrs || true;
-            }
-            for(int sequencei=0;sequencei<polylineValue.getattrvaluecount("sequence");sequencei++){
-                IomObject sequence=polylineValue.getattrobj("sequence",sequencei);
-                LineForm[] lineforms = polylineType.getLineForms();
-                HashSet<String> lineformNames=new HashSet<String>();
-                for(LineForm lf:lineforms){
-                    lineformNames.add(lf.getName());
-                }
-                if(sequence.getobjecttag().equals("SEGMENTS")){
-                    if(sequence.getattrvaluecount("segment")<=1){
-//                        logMsg(validateType, rsrc.getString("validatePolyline.invalidNumberOfSegments"));
-                        System.err.println("validatePolyline.invalidNumberOfSegments");
-                        foundErrs = foundErrs || true;
-                    }
-                    for(int segmenti=0;segmenti<sequence.getattrvaluecount("segment");segmenti++){
-                        // segment = all segments which are in the actual sequence.
-                        IomObject segment=sequence.getattrobj("segment",segmenti);
-                        if(segment.getobjecttag().equals("COORD")){
-                            if(lineformNames.contains("STRAIGHTS") || segmenti==0){
-                                //validateCoordType(validateType, (CoordType) polylineType.getControlPointDomain().getType(), segment, attrName);
-                            }else{
-                                //logMsg(validateType, "unexpected COORD");
-                                System.err.println("unexpected COORD");
-                                foundErrs = foundErrs || true;
-                            }
-                        } else if (segment.getobjecttag().equals("ARC")){
-                            if(lineformNames.contains("ARCS") && segmenti>0){
-                                //validateARCSType(validateType, (CoordType) polylineType.getControlPointDomain().getType(), segment, attrName);
-                            }else{
-                                //logMsg(validateType, "unexpected ARC");
-                                System.err.println("unexpected ARC");
-                                foundErrs = foundErrs || true;
-                            }
-                        } else {
-                            //logMsg(validateType, "unexpected Type "+segment.getobjecttag());
-                            System.err.println("unexpected Type " + segment.getobjecttag());
-                            foundErrs = foundErrs || true;
-                        }
-                    }
-                } else {
-//                    logMsg(validateType, "unexpected Type "+sequence.getobjecttag());
-                    System.err.println("unexpected Type " + sequence.getobjecttag());
-                    foundErrs = foundErrs || true;
-                }
-            }
-        } else {
-            //logMsg(validateType, "unexpected Type "+polylineValue.getobjecttag()+"; POLYLINE expected");
-            System.err.println("unexpected Type "+polylineValue.getobjecttag()+"; POLYLINE expected");
-            foundErrs = foundErrs || true;
-        }
-        return !foundErrs;
-    }
-    */
 }
