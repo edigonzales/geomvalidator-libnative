@@ -63,20 +63,28 @@ public class GeomValidatorLib {
             } else if (jtsGeom instanceof Polygon) {
                 geom = Jts2iox.JTS2surface((Polygon)jtsGeom);
                 valid = validateSurfaceTopology(layername, fid, geom, errFact);
-
             } else if (jtsGeom instanceof MultiPolygon) {
                 geom = Jts2iox.JTS2multisurface((MultiPolygon)jtsGeom);
                 valid = validateSurfaceTopology(layername, fid, geom, errFact);
-            }
-            
-            System.out.println(geom);
-            
+
+                // TODO: Wie genau ist das mit den Multipolygonen?
+//                MultiPolygon multiPolygon = (MultiPolygon) jtsGeom;
+//                for (int i=0; i<multiPolygon.getNumGeometries(); i++) {
+//                    Polygon poly = (Polygon) multiPolygon.getGeometryN(i);
+//                    geom = Jts2iox.JTS2surface(poly);
+//                    valid = validateSurfaceTopology(layername, fid, geom, errFact);
+//                    System.out.println("--------------****");
+//                    System.out.println(geom);
+//                }
+            }            
         } catch (ParseException e) {
             e.printStackTrace();
             return 2;
         }
         
-        if (!valid) return 1;  
+        // TODO: Funktioniert nicht, da auch Fehler auftreten, die keine Auswirkung auf die Variable haben (?). 
+        // Z.B. duplicate coords.
+        //if (!valid) return 1;  
         
         return 0;
     }
@@ -120,8 +128,6 @@ public class GeomValidatorLib {
             }
             for (IoxInvalidDataException err : dataerrs){
                 errFact.addEvent(errFact.logError(err));
-                System.err.println("****FUBAR");
-                //System.err.println(err.getMessage());
             }
         }
         return polygonValid;
