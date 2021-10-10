@@ -1,0 +1,110 @@
+Info: ilivalidator-1.11.3-0de2d606b648b74ab53fce8201a0fdf70b208a47
+Info: ili2c-5.0.2-20190906
+Info: iox-ili-1.20.15-be7ec2c081c774c90ad8d244857d357cbfc23308
+Info: User <default>
+Info: Start date 2021-10-10 06:26
+Info: maxMemory 1864192 KB
+Info: dataFile </tmp/ch.so.awjf.foerderprogramm_biodiversitaet.xtf>
+Info: ilidirs <%ITF_DIR;http://models.interlis.ch/;%JAR_DIR/ilimodels>
+Info: lookup model <Units> in repository </tmp/>
+Info: lookup model <Units> in repository <http://models.interlis.ch/>
+Warning: TID=1001: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1002: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1003: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1004: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1005: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1006: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1007: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=1008: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Info: lookup model <CoordSys> 2.3 in repository </tmp/>
+Info: lookup model <CoordSys> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository </tmp/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Warning: TID=100501: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100502: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100503: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100504: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100505: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100506: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100507: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100508: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100509: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100510: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100511: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100512: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100513: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100514: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100515: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100516: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100517: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100518: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100519: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100520: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100521: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Warning: TID=100522: ignored; unknown class <IliRepository20.RepositoryIndex.ModelMetadata>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository </tmp/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.kgk-cgc.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.llv.li/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://repositorio.proadmintierra.info/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.ai.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.kgk-cgc.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.ar.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.be.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.bl.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.bs.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.gl.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.gr.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.lu.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://models.geo.sg.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <http://models.geo.sh.ch/>
+Info: lookup model <SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519> 2.3 in repository <https://geo.so.ch/models/>
+Info: ilifile </home/jenkins/.ilicache/models.interlis.ch/refhb23/Units-20120220.ili>
+Info: ilifile </home/jenkins/.ilicache/models.interlis.ch/refhb23/CoordSys-20151124.ili>
+Info: ilifile </home/jenkins/.ilicache/models.geo.admin.ch/CH/CHBase_Part1_GEOMETRY_V1.ili>
+Info: ilifile </home/jenkins/.ilicache/geo.so.ch/models/AWJF/SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.ili>
+Info: validate data...
+Info: assume unknown external objects
+Info: first validation pass...
+Error: tid e82ead8c-f6dc-487d-8008-3c0fb2ffe2ee: superfluous outerboundary tid e82ead8c-f6dc-487d-8008-3c0fb2ffe2ee
+Error: multipolygon detected
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2610894.968, 1249766.404), tids 4b76926f-cef2-4b9e-8750-f3aef21385eb, 4b76926f-cef2-4b9e-8750-f3aef21385eb
+Error: line 22: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche: tid dc58062e-4251-433b-b124-835356dc873e: duplicate coord at (2621389.108, 1244991.863, NaN)
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2617574.166, 1240369.683), coord2 (2617621.209, 1240261.671), tids 8ed21983-6692-4f99-b306-f084a364440f, 8ed21983-6692-4f99-b306-f084a364440f
+Error: line 36: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche: tid 01857f02-9fca-4e18-83af-f97de8744ecd: duplicate coord at (2635087.966, 1247870.588, NaN)
+Error: tid 7f4475b2-aec2-41b9-9525-b2d1eb51144a: superfluous outerboundary tid 7f4475b2-aec2-41b9-9525-b2d1eb51144a
+Error: multipolygon detected
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2616387.674, 1241119.729), tids 2f908a58-f31b-4757-8faa-6247f555d36d, 2f908a58-f31b-4757-8faa-6247f555d36d
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608174.427, 1246416.029), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608182.441, 1246420.290), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608187.991, 1246423.241), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608173.850, 1246415.857), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608177.667, 1246414.544), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608174.676, 1246415.915), tids 8f88bea1-a48b-4c9c-b567-88cc9b27a079, 8f88bea1-a48b-4c9c-b567-88cc9b27a079
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2639896.025, 1242439.306), coord2 (2639961.840, 1242281.879), tids cd327076-09ba-4cce-b91e-8556ce3b9e2a, cd327076-09ba-4cce-b91e-8556ce3b9e2a
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608577.741, 1251269.255), tids aa03543a-edf8-401e-a5e2-ce30095fdc3c, aa03543a-edf8-401e-a5e2-ce30095fdc3c
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Intersection coord1 (2608678.887, 1251218.420), tids aa03543a-edf8-401e-a5e2-ce30095fdc3c, aa03543a-edf8-401e-a5e2-ce30095fdc3c
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2621665.323, 1238194.124), coord2 (2621707.175, 1238213.519), tids d5343bea-f5ed-4d4c-b8f8-62aefd571291, d5343bea-f5ed-4d4c-b8f8-62aefd571291
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2621769.676, 1238187.880), coord2 (2621828.381, 1238229.354), tids d5343bea-f5ed-4d4c-b8f8-62aefd571291, d5343bea-f5ed-4d4c-b8f8-62aefd571291
+Error: line 108: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche: tid b43664cc-e2b4-4d40-b035-97d516de4342: duplicate coord at (2623349.854, 1235011.391, NaN)
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2629284.953, 1243026.022), coord2 (2629284.953, 1243026.023), tids f5a50c72-a827-4cce-bb79-b1e30720f3c2, f5a50c72-a827-4cce-bb79-b1e30720f3c2
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2617556.183, 1241295.565), coord2 (2617571.486, 1241301.296), tids a93e9e6d-06c2-40ed-8722-83e10094ba47, a93e9e6d-06c2-40ed-8722-83e10094ba47
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2617712.091, 1241349.337), coord2 (2617743.169, 1241359.750), tids a93e9e6d-06c2-40ed-8722-83e10094ba47, a93e9e6d-06c2-40ed-8722-83e10094ba47
+Error: line 143: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche: tid 79dd3077-7f8a-4104-889e-29b11947d556: duplicate coord at (2627093.494, 1243599.187, NaN)
+Error: tid 26908431-9a99-45d5-aafe-839739c151d7: superfluous outerboundary tid 26908431-9a99-45d5-aafe-839739c151d7
+Error: multipolygon detected
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2598174.558, 1216930.038), coord2 (2598178.592, 1216930.058), tids 002befdd-a7d6-480c-83f0-8bea654b4773, 002befdd-a7d6-480c-83f0-8bea654b4773
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2602044.993, 1258089.023), coord2 (2602567.474, 1258169.988), tids 7e09a148-e11f-43b2-9cc5-d56fd60caad8, 7e09a148-e11f-43b2-9cc5-d56fd60caad8
+Error: tid acf0f8b0-9f65-44c4-8501-235dbd218880: superfluous outerboundary tid acf0f8b0-9f65-44c4-8501-235dbd218880
+Error: multipolygon detected
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2622864.166, 1241607.252), coord2 (2622910.044, 1241600.021), tids b2bb4078-f3fe-4f41-bbad-929743211d95, b2bb4078-f3fe-4f41-bbad-929743211d95
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2622860.142, 1241526.227), coord2 (2622860.143, 1241526.226), tids b2bb4078-f3fe-4f41-bbad-929743211d95, b2bb4078-f3fe-4f41-bbad-929743211d95
+Error: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche.Geometrie: Overlay coord1 (2597703.335, 1251834.466), coord2 (2597704.017, 1251836.334), tids d68ae5c7-12a3-4262-ad48-83231edf6fab, d68ae5c7-12a3-4262-ad48-83231edf6fab
+Info: second validation pass...
+Info: /tmp/ch.so.awjf.foerderprogramm_biodiversitaet.xtf: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopbaeume BID=SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopbaeume
+Info: ?  2528 objects in CLASS SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopbaeume.Biotopbaum
+Info: /tmp/ch.so.awjf.foerderprogramm_biodiversitaet.xtf: SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen BID=SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen
+Info: ?   199 objects in CLASS SO_AWJF_Foerderprogramm_Biodiversitaet_Publikation_20200519.Biotopflaechen.Biotopflaeche
+Info: ...validation failed
