@@ -5,6 +5,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
+import org.graalvm.nativeimage.IsolateThread;
+import org.graalvm.nativeimage.c.function.CEntryPoint;
+import org.graalvm.nativeimage.c.type.CCharPointer;
+import org.graalvm.nativeimage.c.type.CTypeConversion;
+
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.geom.Geometry;
@@ -41,7 +46,12 @@ import ch.interlis.iox_j.validator.ValidationConfig;
 public class GeomValidatorLib {
     private static ResourceBundle rsrc = java.util.ResourceBundle.getBundle("ch.interlis.iox_j.validator.ValidatorMessages");
     
-    public static int validate(String layername, String fid, String wktGeom) {    
+    @CEntryPoint(name = "geomvalidator")
+    public static int validate(IsolateThread thread, CCharPointer cLayername, CCharPointer cFid, CCharPointer cWktGeom) {    
+        String layername = CTypeConversion.toJavaString(cLayername);
+        String fid = CTypeConversion.toJavaString(cFid);
+        String wktGeom = CTypeConversion.toJavaString(cWktGeom);
+        
         LogEventFactory errFact = new LogEventFactory();
         errFact.setLogger(new Log2EhiLogger());
         

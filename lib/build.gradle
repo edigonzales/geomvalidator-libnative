@@ -15,12 +15,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
 
-    implementation 'ch.interlis:iox-api:1.0.4'
-    implementation 'ch.interlis:iox-ili:1.21.7'
-    implementation 'com.vividsolutions:jts-core:1.14.0'
-    implementation 'com.vividsolutions:jts-io:1.14.0'
-    implementation 'ch.interlis:ili2c-core:5.2.1'
-    
+    api 'ch.interlis:iox-api:1.0.4'
+    api 'ch.interlis:iox-ili:1.21.7'
+    api 'com.vividsolutions:jts-core:1.14.0'
+    api 'com.vividsolutions:jts-io:1.14.0'
+    api 'ch.interlis:ili2c-core:5.2.1'
+    api 'org.graalvm.nativeimage:svm:21.2.0'
 }
 
 tasks.named('test') {
