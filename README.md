@@ -18,7 +18,9 @@ Linux:
 ```
 sudo apt-get install build-essential
 sudo apt install libstdc++-8-dev
+sudo apt-get install zlib1g-dev 
 ```
+(zlib1g-dev nur arm64)
 
 ```
 ./gradlew clean lib:build shadowJar && \
