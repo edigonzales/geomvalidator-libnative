@@ -77,6 +77,8 @@ public class GeomValidatorLib {
                 geom = Jts2iox.JTS2multisurface((MultiPolygon)jtsGeom);
                 valid = validateSurfaceTopology(layername, fid, geom, errFact);
 
+                // a comment
+
                 // TODO: Wie genau ist das mit den Multipolygonen?
 //                MultiPolygon multiPolygon = (MultiPolygon) jtsGeom;
 //                for (int i=0; i<multiPolygon.getNumGeometries(); i++) {
